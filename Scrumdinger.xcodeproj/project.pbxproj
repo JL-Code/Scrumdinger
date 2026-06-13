@@ -107,8 +107,6 @@
 			mainGroup = 05116AC62FDD1B7200DE9957;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				05AA0CB52FDD5FA5005C3650 /* XCLocalSwiftPackageReference "../LIbs/TimerKit" */,
-				05AA0CB82FDD5FF8005C3650 /* XCLocalSwiftPackageReference "../LIbs/ThemeKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 05116AD02FDD1B7200DE9957 /* Products */;
@@ -350,17 +348,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCLocalSwiftPackageReference section */
-		05AA0CB52FDD5FA5005C3650 /* XCLocalSwiftPackageReference "../LIbs/TimerKit" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../LIbs/TimerKit;
-		};
-		05AA0CB82FDD5FF8005C3650 /* XCLocalSwiftPackageReference "../LIbs/ThemeKit" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../LIbs/ThemeKit;
-		};
-/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		05116AE42FDD273E00DE9957 /* ThemeKit */ = {
