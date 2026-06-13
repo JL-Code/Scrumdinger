@@ -9,7 +9,7 @@ import Foundation
 import ThemeKit
 
 /// 每日站会
-struct DailyScrum: Identifiable {
+struct DailyScrum: Identifiable, Sendable {
   let id: UUID
   var title: String
   var attendees: [Attendee]
@@ -35,7 +35,7 @@ struct DailyScrum: Identifiable {
 }
 
 extension DailyScrum {
-  struct Attendee: Identifiable {
+  struct Attendee: Identifiable, Sendable {
     let id: UUID
     var name: String
 

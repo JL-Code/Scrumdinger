@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		05116AE52FDD273E00DE9957 /* ThemeKit in Frameworks */ = {isa = PBXBuildFile; productRef = 05116AE42FDD273E00DE9957 /* ThemeKit */; };
+		05AA0CB72FDD5FA5005C3650 /* TimerKit in Frameworks */ = {isa = PBXBuildFile; productRef = 05AA0CB62FDD5FA5005C3650 /* TimerKit */; };
+		05AA0CBA2FDD5FF8005C3650 /* ThemeKit in Frameworks */ = {isa = PBXBuildFile; productRef = 05AA0CB92FDD5FF8005C3650 /* ThemeKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				05116AE52FDD273E00DE9957 /* ThemeKit in Frameworks */,
+				05AA0CB72FDD5FA5005C3650 /* TimerKit in Frameworks */,
+				05AA0CBA2FDD5FF8005C3650 /* ThemeKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +75,8 @@
 			name = Scrumdinger;
 			packageProductDependencies = (
 				05116AE42FDD273E00DE9957 /* ThemeKit */,
+				05AA0CB62FDD5FA5005C3650 /* TimerKit */,
+				05AA0CB92FDD5FF8005C3650 /* ThemeKit */,
 			);
 			productName = Scrumdinger;
 			productReference = 05116ACF2FDD1B7200DE9957 /* Scrumdinger.app */;
@@ -101,7 +107,8 @@
 			mainGroup = 05116AC62FDD1B7200DE9957;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				05116AE32FDD273E00DE9957 /* XCLocalSwiftPackageReference "ThemeKit" */,
+				05AA0CB52FDD5FA5005C3650 /* XCLocalSwiftPackageReference "../LIbs/TimerKit" */,
+				05AA0CB82FDD5FF8005C3650 /* XCLocalSwiftPackageReference "../LIbs/ThemeKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 05116AD02FDD1B7200DE9957 /* Products */;
@@ -345,14 +352,26 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		05116AE32FDD273E00DE9957 /* XCLocalSwiftPackageReference "ThemeKit" */ = {
+		05AA0CB52FDD5FA5005C3650 /* XCLocalSwiftPackageReference "../LIbs/TimerKit" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = ThemeKit;
+			relativePath = ../LIbs/TimerKit;
+		};
+		05AA0CB82FDD5FF8005C3650 /* XCLocalSwiftPackageReference "../LIbs/ThemeKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../LIbs/ThemeKit;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		05116AE42FDD273E00DE9957 /* ThemeKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ThemeKit;
+		};
+		05AA0CB62FDD5FA5005C3650 /* TimerKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TimerKit;
+		};
+		05AA0CB92FDD5FF8005C3650 /* ThemeKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ThemeKit;
 		};
