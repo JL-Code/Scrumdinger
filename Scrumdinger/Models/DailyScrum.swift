@@ -10,42 +10,50 @@ import ThemeKit
 
 /// 每日站会
 struct DailyScrum: Identifiable, Sendable {
-  let id: UUID
-  var title: String
-  var attendees: [Attendee]
-  var lengthInMinutes: Int
-  var lengthInMinutesAsDouble: Double {
-    get {
-      Double(lengthInMinutes)
+    
+    let id: UUID
+    var title: String
+    var attendees: [Attendee]
+    var lengthInMinutes: Int
+    var lengthInMinutesAsDouble: Double {
+        get {
+            Double(lengthInMinutes)
+        }
+        set {
+            lengthInMinutes = Int(newValue)
+        }
     }
-    set {
-      lengthInMinutes = Int(newValue)
-    }
-  }
-  var theme: Theme
 
-  init(id: UUID = UUID(), title: String, attendees: [Attendee], lengthInMinutes: Int, theme: Theme)
-  {
-    self.id = id
-    self.title = title
-    self.attendees = attendees
-    self.lengthInMinutes = lengthInMinutes
-    self.theme = theme
-  }
+    var theme: Theme
+    var history: [History] = []
+
+    init(
+        id: UUID = UUID(),
+        title: String,
+        attendees: [Attendee],
+        lengthInMinutes: Int,
+        theme: Theme
+    ) {
+        self.id = id
+        self.title = title
+        self.attendees = attendees
+        self.lengthInMinutes = lengthInMinutes
+        self.theme = theme
+    }
 }
 
 extension DailyScrum {
-  struct Attendee: Identifiable, Sendable {
-    let id: UUID
-    var name: String
+    struct Attendee: Identifiable, Sendable {
+        let id: UUID
+        var name: String
 
-    init(id: UUID = UUID(), name: String) {
-      self.id = id
-      self.name = name
+        init(id: UUID = UUID(), name: String) {
+            self.id = id
+            self.name = name
+        }
     }
-  }
 
-  static var emptyScrum: DailyScrum {
-    DailyScrum(title: "", attendees: [], lengthInMinutes: 5, theme: .sky)
-  }
+    static var emptyScrum: DailyScrum {
+        DailyScrum(title: "", attendees: [], lengthInMinutes: 5, theme: .sky)
+    }
 }
