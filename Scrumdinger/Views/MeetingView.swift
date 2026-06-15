@@ -16,6 +16,7 @@ struct MeetingView: View {
     @Environment(\.modelContext) private var context
     let scrum: DailyScrum
     @State var scrumTimer = ScrumTimer()
+    @Binding var errorWrapper: ErrorWrapper?
 
     private let player = AVPlayer.dingPlayer()
 
@@ -24,14 +25,15 @@ struct MeetingView: View {
             RoundedRectangle(cornerRadius: 16.0)
                 .fill(scrum.theme.mainColor)
             VStack {
-                ProgressView(value: 5, total: 15)
                 MeetingHeaderView(
                     secondsElapsed: scrumTimer.secondsElapsed,
                     secondsRemaining: scrumTimer.secondsRemaining,
                     theme: scrum.theme
                 )
-                Circle()
-                    .strokeBorder(lineWidth: 24)
+                MeetingTimerView(
+                    speakers: scrumTimer.speakers,
+                    theme: scrum.theme
+                )
                 MeetingFooterView(
                     speakers: scrumTimer.speakers,
                     skipAction: scrumTimer.skipSpeaker
@@ -44,7 +46,14 @@ struct MeetingView: View {
             startScrum()
         }
         .onDisappear {
-            endScrum()
+            do {
+                try endScrum()
+            } catch {
+                errorWrapper = ErrorWrapper(
+                    error: error,
+                    guidance: "Meeting time was not recorded. Try again later."
+                )
+            }
         }
         .navigationBarTitleDisplayMode(.inline)
     }
@@ -61,15 +70,15 @@ struct MeetingView: View {
         scrumTimer.startScrum()
     }
 
-    private func endScrum() {
+    private func endScrum() throws {
         scrumTimer.stopScrum()
         let newHistory = History(attendees: scrum.attendees)
         scrum.history.insert(newHistory, at: 0)
-        try? context.save()
+        try context.save()
     }
 }
 
 #Preview {
     let scrum = DailyScrum.sampleData[0]
-    MeetingView(scrum: scrum)
+    MeetingView(scrum: scrum, errorWrapper: .constant(nil))
 }
